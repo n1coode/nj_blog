@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-11-19" product-name="tx_njportfolio">
+		<header/>
+		<body>
+			<trans-unit id="flexform.controller.post.latest" xml:space="preserve">
+				<target>Blogeinträge &#171; Letzte Artikel &#187;</target>
+			</trans-unit>
+			<trans-unit id="flexform.controller.work.focusClient" xml:space="preserve">
+				<target>Arbeiten &#171; Detailansicht (Klient) &#187;</target>
+			</trans-unit>
+			<trans-unit id="flexform.controller.work.highlights" xml:space="preserve">
+				<target>Arbeiten &#171; Highlights &#187;</target>
+			</trans-unit>
+			<trans-unit id="flexform.controller.work.list" xml:space="preserve">
+				<target>Arbeiten &#171; Liste &#187;</target>
+			</trans-unit>
+			<trans-unit id="flexform.controller.work.selection" xml:space="preserve">
+				<target>Arbeiten &#171; Auswahlmenu &#187;</target>
+			</trans-unit>
+			<trans-unit id="label.general.description" xml:space="preserve">
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="label.general.showDescription" xml:space="preserve">
+				<target>Beschreibung anzeigen</target>
+			</trans-unit>
+			<trans-unit id="label.model.client.cdColorBack" xml:space="preserve">
+				<target>Corporate-Design - Farbe &#171; Hintergrund &#187; </target>
+			</trans-unit>
+			<trans-unit id="label.model.client.cdColorFront" xml:space="preserve">
+				<target>Corporate-Design - Farbe &#171; Vordergrund &#187; </target>
+			</trans-unit>
+			<trans-unit id="label.model.client.trade" xml:space="preserve">
+				<target>Branche</target>
+			</trans-unit>
+			<trans-unit id="label.model.post.highlight" xml:space="preserve">
+				<target>Beitrag hervorheben</target>
+			</trans-unit>
+			<trans-unit id="label.model.post.inHome" xml:space="preserve">
+				<target>Beitrag auf Startseite des Blogs veröffentlichen</target>
+			</trans-unit>
+			<trans-unit id="label.model.source.statusQuo" xml:space="preserve">
+				<target>Stand</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.conclusion" xml:space="preserve">
+				<target>Abschlussbemerkung</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.creationYear" xml:space="preserve">
+				<target>Erstellungsjahr</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.highlight" xml:space="preserve">
+				<target>Arbeit hervorheben</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.intro" xml:space="preserve">
+				<target>Einleitung</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.showConclusion" xml:space="preserve">
+				<target>Abschlussbemerkung anzeigen</target>
+			</trans-unit>
+			<trans-unit id="label.model.work.showIntro" xml:space="preserve">
+				<target>Einleitung anzeigen</target>
+			</trans-unit>
+			<trans-unit id="model.blog" xml:space="preserve">
+				<target>Blog</target>
+			</trans-unit>
+			<trans-unit id="model.post" xml:space="preserve">
+				<target>Eintrag</target>
+			</trans-unit>
+			<trans-unit id="model.source" xml:space="preserve">
+				<target>Quelle</target>
+			</trans-unit>
+			<trans-unit id="model.portfolio" xml:space="preserve">
+				<target>Arbeitsmappe</target>
+			</trans-unit>
+			<trans-unit id="model.product" xml:space="preserve">
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="model.trade" xml:space="preserve">
+				<target>Branche</target>
+			</trans-unit>
+			<trans-unit id="model.work" xml:space="preserve">
+				<target>Arbeit</target>
+			</trans-unit>
+			<trans-unit id="plugin.title" xml:space="preserve">
+				<target>njs Blog-System</target>
+			</trans-unit>
+			<trans-unit id="select.model.content.imageAdjustment.center" xml:space="preserve">
+				<target>Zentriert</target>
+			</trans-unit>
+			<trans-unit id="select.model.content.imageAdjustment.left" xml:space="preserve">
+				<target>Links</target>
+			</trans-unit>
+			<trans-unit id="select.model.content.imageAdjustment.right" xml:space="preserve">
+				<target>Rechts</target>
+			</trans-unit>
+			<trans-unit id="select.model.source.type.1" xml:space="preserve">
+				<target>Internetseite</target>
+			</trans-unit>
+			<trans-unit id="select.model.source.type.2" xml:space="preserve">
+				<target>Buch</target>
+			</trans-unit>
+			<trans-unit id="select.model.source.type.3" xml:space="preserve">
+				<target>Zeitschrift</target>
+			</trans-unit>
+			<trans-unit id="select.model.source.type.4" xml:space="preserve">
+				<target>Zeitung</target>
+			</trans-unit>
+			<trans-unit id="select.model.source.type.5" xml:space="preserve">
+				<target>Video</target>
+			</trans-unit>
+			<trans-unit id="tab.model.client.logo" xml:space="preserve">
+				<target>Logo</target>
+			</trans-unit>
+			<trans-unit id="tab.model.client.scanCode" xml:space="preserve">
+				<target>QR-Code</target>
+			</trans-unit>
+			<trans-unit id="tab.model.portfolio.works" xml:space="preserve">
+				<target>Arbeiten</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

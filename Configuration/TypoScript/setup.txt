@@ -1,0 +1,47 @@
+# Plugin configuration
+plugin.tx_njblog {
+	settings {
+ 		general {
+ 			storagePid = {$plugin.tx_njblog.persistence.storagePid}
+			imageFolder = {$plugin.tx_njblog.settings.general.imageFolder}
+			includeJQuery = {$plugin.tx_njblog.settings.general.includeJQuery}
+		}
+		
+		model {
+ 			blog {
+				includeCss = {$plugin.tx_njblog.settings.model.blog.includeCss}
+				cssFile = {$plugin.tx_njblog.settings.model.blog.cssFile}
+			}
+		}
+    }
+    
+    persistence {
+		storagePid = {$plugin.tx_njblog.persistence.storagePid}
+
+		classes {
+			N1coode\NjBlog\Domain\Model\Ce {
+				mapping {
+					tableName = tx_njcollection_domain_model_content
+				}
+			}
+		}
+	}
+	
+	view {
+		templateRootPath = {$plugin.tx_njblog.view.templateRootPath}
+		partialRootPath = {$plugin.tx_njblog.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_njblog.view.layoutRootPath}
+	}
+}
+
+config.tx_extbase {
+	persistence {
+		classes {
+			N1coode\NjBlog\Domain\Model\Ce {
+				mapping {
+					tableName = tx_njcollection_domain_model_content
+				} 
+			}
+		}
+	}
+}

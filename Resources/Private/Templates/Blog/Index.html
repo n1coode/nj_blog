@@ -1,0 +1,214 @@
+<div class="tx-njblog">
+<f:if condition="{blogError}">
+	<f:then>
+		<f:render partial="Errors" arguments="{blogError : blogError}" />	
+	</f:then>
+	
+	<f:else>
+		<f:if condition="{blogs}">
+			<f:then>
+				<f:for each="{blogs}" as="blog">
+					<f:if condition="{highlights}">
+						<f:then>
+							<f:for each="{highlights}" as="post" iteration="postIterator">
+								<article id="post-{post.uid}" class="highlight">
+									<header>
+										<time class="date" datetime="{f:format.date(date: '{post.crdate}', format: 'Y-m-d')}">
+											<f:format.date format="d.m.Y - H:i:s">{post.crdate}</f:format.date>
+										</time>
+										<h2>{post.title}</h2>
+									</header>
+									<div class="body">
+										<f:format.crop maxCharacters="250" append="&nbsp;[...]">
+											<f:format.html>{post.intro}</f:format.html>
+										</f:format.crop>
+									</div>
+								</article>
+							</f:for>
+						</f:then>
+						<f:else>
+							keine highlights
+						</f:else>
+					</f:if>
+			
+					<f:if condition="{posts}">
+						<f:then>
+							<f:if condition="{blog.activateDoubleLayout}">
+								<f:then>
+									<div class="leftColumn">
+										<f:for each="{posts}" as="post" iteration="postIterator">
+											<f:if condition="{postIterator.isOdd}">
+												<article id="post-{post.uid}" class="double odd">
+													<header>
+														<time class="date" datetime="{f:format.date(date: '{post.crdate}', format: 'Y-m-d')}">
+															<f:format.date format="d.m.Y - H:i:s">{post.crdate}</f:format.date>
+														</time>
+														<h2>{post.title}</h2>
+													</header>
+													<div class="body">
+														<f:if condition="{post.intropic}">
+															<img src="fileadmin/user_upload/tx_njblog/{post.intropic}" {f:if(condition: '{post.intropicWidth}', then: 'width="{post.intropicWidth}px" ', else: '')}{f:if(condition: '{post.intropicHeight}', then: 'width="{post.intropicHeight}px" ', else: '')} class="{post.intropicAdjustment}" /> 
+														</f:if>
+														<f:format.html>{post.intro}</f:format.html>
+														<f:if condition="{post.intropic}">
+															<br class="clear"/>
+														</f:if>
+													</div>
+												</article>
+											</f:if>
+										</f:for>
+									</div>
+									<div class="rightColumn">
+										<f:for each="{posts}" as="post" iteration="postIterator">
+											<f:if condition="{postIterator.isEven}">
+												<article id="post-{post.uid}" class="double even">
+													<header>
+														<time class="date" datetime="{f:format.date(date: '{post.crdate}', format: 'Y-m-d')}">
+															<f:format.date format="d.m.Y - H:i:s">{post.crdate}</f:format.date>
+														</time>
+														<h2>{post.title}</h2>
+													</header>
+													<f:if condition="{intro}">
+													</f:if>
+												</article>
+											</f:if>
+										</f:for>
+									</div>
+								</f:then>
+								<f:else>
+									<f:for each="{posts}" as="post" iteration="postIterator">
+										<article id="post-{post.uid}" class="single">
+											<f:render section="articleHeader" arguments="{post:'{post}'}" />
+											<f:render section="intro" arguments="{post:'{post}'}" />
+											<div class="additional">
+												<f:if condition="{post.tags}">
+													<div class="tags">
+														<f:if condition="{post.tags->f:count()} > 1">
+														 	<f:then><f:translate key="blog.label.tags"></f:translate></f:then>
+														 	<f:else><f:translate key="blog.label.tag"></f:translate></f:else>
+														</f:if>
+														<f:for each="{post.tags}" as="tag" iteration="tagIterator">
+															<f:link.action action="index" controller="Blog" arguments="{tag: '{tag}'}">{tag.title}</f:link.action>
+														</f:for>
+													</div>
+												</f:if>
+												<f:if condition="{post.sources}">
+													<f:render section="sources" arguments="{sources:'{post.sources}'}" />
+												</f:if>
+												<f:if condition="{post.relPosts}">
+													<f:render section="relPosts" arguments="{relPosts:'{post.relPosts}'}" />
+												</f:if>
+											</div>
+										</article>
+									</f:for>
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							<div class="information">no posts</div>
+						</f:else>
+					</f:if>
+				</f:for>
+			</f:then>
+			<f:else>
+				<div class="information">no Blogs found</div>
+			</f:else>
+		</f:if>
+	</f:else>
+</f:if>
+</div>
+
+<f:section name="articleHeader">
+	<header>
+		<h2>
+			<f:if condition="{post.content}">
+				<f:then><f:link.action controller="Post" action="show" arguments="{post: '{post}'}">{post.title}</f:link.action></f:then>
+				<f:else>{post.title}</f:else>
+			</f:if>
+		</h2>
+		<time class="date" datetime="{f:format.date(date: '{post.crdate}', format: 'Y-m-d')}">
+			<f:format.date format="d.m.Y - H:i:s">{post.crdate}</f:format.date>
+		</time>							
+	</header>
+</f:section>
+
+<f:section name="intro">
+	<div class="body">
+		<f:for each="{post.intro}" as="element">
+			<f:if condition="{element.etype} == 'textimage'">
+				
+				<f:if condition="{element.img}">
+					<f:render section="image" arguments="{id:'njbsImg{element.uid}', img:'{element.img}', imgHeight:'{element.imgHeight}', imgWidth:'{element.imgWidth}', useThumb:'{element.imgUseThumb}', thumbWidth:'{element.imgWidthThumb}',thumbHeight:'{element.imgWidthThumb}', imgAdjustment:'{element.imgAdjustment}',imgCopyright:'{element.imgCopyright}'}" />
+				</f:if>
+				
+				<f:if condition="{element.content}">
+					<f:if condition="{element.img}">
+						<f:then>
+							<f:if condition="{element.imgAdjustment} == 'left'">
+								<f:render section="content" arguments="{content:'{element.content}', contentAdjustment:'right clearfix'}" />
+							</f:if>
+							<f:if condition="{element.imgAdjustment} == 'right'">
+								<f:render section="content" arguments="{content:'{element.content}', contentAdjustment:'left clearfix'}" />
+							</f:if>
+							<f:if condition="{element.imgAdjustment} == 'center'">
+								<f:render section="content" arguments="{content:'{element.content}', contentAdjustment:'center'}" />
+							</f:if>
+						</f:then>
+						<f:else>
+							<f:render section="content" arguments="{content:'{element.content}', contentAdjustment:'center'}" />
+						</f:else>
+					</f:if>
+				</f:if>
+				<f:if condition="{post.content}">
+					<div class="readmore">
+						<f:link.action controller="Post" action="show" arguments="{post: '{post}'}"><f:translate key="post.label.readmore"></f:translate></f:link.action>
+					</div>
+				</f:if>
+			</f:if>
+		</f:for>														
+	</div>
+</f:section>
+
+<f:section name="image">
+	<div class="img {imgAdjustment}">
+		<f:if condition="{useThumb}">
+			<f:then>
+				<img src="fileadmin/user_upload/tx_njblog/{img}" id="{id}" {f:if(condition: '{thumbWidth}', then: 'width="{thumbWidth}px" ', else: '')}{f:if(condition: '{thumbHeight}', then: 'height="{thumbHeight}px" ', else: '')} class="{imgAdjustment} thumb" onClick="njbsPostShowImage({id});" />
+			</f:then>
+			<f:else>
+				<img src="fileadmin/user_upload/tx_njblog/{img}" id="{id}" {f:if(condition: '{imgWidth}', then: 'width="{imgWidth}px" ', else: '')}{f:if(condition: '{imgHeight}', then: 'height="{imgHeight}px" ', else: '')} class="{imgAdjustment}" />
+			</f:else>
+		</f:if>
+		<f:if condition="{imgCopyright}">
+			<br/>&copy; <f:format.raw>{imgCopyright}</f:format.raw>
+		</f:if>
+	</div>
+</f:section>
+
+<f:section name="content">
+	<div class="content {contentAdjustment}"><f:format.raw>{content}</f:format.raw></div>
+</f:section>
+
+<f:section name="sources">
+	<div class="sources">
+		<f:if condition="{sources->f:count()} > 1">
+		 	<f:then><f:translate key="blog.label.sources"></f:translate></f:then>
+		 	<f:else><f:translate key="blog.label.source"></f:translate></f:else>
+		</f:if>
+		<f:for each="{sources}" as="source" iteration="sourceIterator">
+				<f:link.external uri="{source.url}" target="_blank">{source.url}</f:link.external>
+		</f:for>
+	</div>
+</f:section>
+
+<f:section name="relPosts">
+	<div class="relPosts">
+		<f:if condition="{relPosts->f:count()} > 1">
+		 	<f:then><f:translate key="blog.label.relPosts"></f:translate></f:then>
+		 	<f:else><f:translate key="blog.label.relPost"></f:translate></f:else>
+		</f:if>
+		<f:for each="{relPosts}" as="relPost" iteration="relPostIterator">
+			<f:link.action action="show" controller="Post" arguments="{post:'{relPost}'}">{relPost.title}</f:link.action>
+		</f:for>
+	</div>
+</f:section>

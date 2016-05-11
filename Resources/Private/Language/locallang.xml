@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the nj_blog extension.</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="error">Error</label>
+			<label index="blogError.toManyBlogs">The blog-system allowes only one blog per folder. Please check your structure in the backend.</label>
+			<label index="blog.label.relPosts">Relative posts:</label>
+			<label index="blog.label.relPost">Relative post:</label>
+			<label index="blog.label.source">Source:</label>
+			<label index="blog.label.sources">Sources:</label>
+			<label index="blog.label.tag">Tag:</label>
+			<label index="blog.label.tags">Tags:</label>
+			<label index="post.label.readmore">read more ...</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="error">Fehler</label>
+			<label index="blogError.toManyBlogs">Es darf nur ein Blog pro Ordner angelegt werden. Überprüfe bitte deine Struktur im Backend.</label>
+			<label index="blog.label.relPosts">Ähnliche Beiträge:</label>
+			<label index="blog.label.relPost">Ähnlicher Beitrag:</label>
+			<label index="blog.label.source">Quelle:</label>
+			<label index="blog.label.sources">Quellen:</label>
+			<label index="blog.label.tag">Stichwort:</label>
+			<label index="blog.label.tags">Stichwörter:</label>
+			<label index="post.label.readmore">weiterlesen ...</label>
+		</languageKey>
+	</data>
+</T3locallang>

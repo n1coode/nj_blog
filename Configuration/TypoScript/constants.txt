@@ -1,0 +1,38 @@
+plugin.tx_njblog {
+	settings {
+ 		general {
+ 			# cat=plugin.tx_njblog//a; type=int+; label=Default storage PID
+			storagePid =
+ 			# cat=plugin.tx_njblog//a; type=string; label=Image folder
+			imageFolder =
+			# cat=plugin.tx_njblog//a; type=boolean; label=Option Include jQuery-Library
+			includeJQuery = 0
+		}
+		
+		model {
+			blog {
+				# cat=plugin.tx_njblog//a; type=boolean; label=Option Include Css-File for the Blog-Model
+				includeCss = 1
+				
+				# cat=plugin.tx_njblog//a; type=string; label=Css-File for the Blog-Model
+				cssFile = 
+				
+			}
+		}
+		
+	}
+	
+	persistence {
+		# cat=plugin.tx_njblog//a; type=int+; label=Default storage PID
+		storagePid =
+	}
+		
+	view {
+		# cat=plugin.tx_njblog/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:nj_blog/Resources/Private/Templates/
+		# cat=plugin.tx_njblog/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:nj_blog/Resources/Private/Partials/
+		# cat=plugin.tx_njblog/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:nj_blog/Resources/Private/Layouts/
+	}	
+}

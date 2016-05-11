@@ -1,0 +1,27 @@
+<div class="tx-njblog article">
+	<article>
+		<f:render section="articleHeader" arguments="{post:'{post}'}" />
+		<div class="body">
+			<f:if condition="{post.intropic}">
+				<f:render section="introPicture" arguments="{intropic:'{post.intropic}', class:'{post.intropicAdjustment}', width:'{post.intropicWidth}', height:'{post.intropicHeight}', copyright:'{post.intropicCopyright}'}" />
+			</f:if>
+			<f:format.html>{post.intro}</f:format.html>
+		</div>
+	</article>
+</div>
+
+<f:section name="articleHeader">
+	<header>
+		<time class="date" datetime="{f:format.date(date: '{post.crdate}', format: 'Y-m-d')}">
+			<f:format.date format="d.m.Y - H:i:s">{post.crdate}</f:format.date>
+		</time>
+		<h2>{post.title}</h2>							
+	</header>	
+</f:section>
+
+<f:section name="introPicture">
+	<div class="introPicture {class}">
+		<f:image src="fileadmin/user_upload/tx_njblog/{intropic}" alt="" treatIdAsReference="0" />
+		<f:if condition="{copyright}"><div class="copyright">&copy; {copyright}</div></f:if>
+	</div>
+</f:section>
